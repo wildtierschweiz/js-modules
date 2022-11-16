@@ -1,0 +1,13 @@
+{
+    "name": "wildtierschweiz/js-modules",
+    "description": "JavaScript jQuery Frontend-Modules",
+    "type": "library",
+    "require": {},
+    "license": "MIT",
+    "authors": [{
+        "name": "Daniel Duersteler",
+        "email": "daniel.duersteler@wildtier.ch",
+        "homepage": "https://www.wildtier.ch",
+        "role": "Developer"
+    }]
+}
