@@ -15,11 +15,11 @@
     "scripts": {
         "post-install-cmd": [
             "wsl mkdir -p _libraries",
-            "wsl cp -r vendor/wildtierschweiz/js-modules/src/* _libraries/bootstrap/"
+            "wsl cp -r ./vendor/wildtierschweiz/js-modules/src/* ./_libraries/bootstrap/"
         ],
         "post-update-cmd": [
             "wsl mkdir -p _libraries",
-            "wsl cp -r vendor/wildtierschweiz/js-modules/src/* _libraries/bootstrap/"
+            "wsl cp -r ./vendor/wildtierschweiz/js-modules/src/* ./_libraries/bootstrap/"
         ]
     }
 }
