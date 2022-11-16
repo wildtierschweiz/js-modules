@@ -22,6 +22,10 @@
             build();
         };
 
+        /**
+         * create dom element
+         * @returns {jQueryDomElement}
+         */
         var create = function () {
             var $e = $('<button></button>');
             if (settings.class)

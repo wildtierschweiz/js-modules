@@ -4,10 +4,22 @@
     "type": "library",
     "require": {},
     "license": "MIT",
-    "authors": [{
-        "name": "Daniel Duersteler",
-        "email": "daniel.duersteler@wildtier.ch",
-        "homepage": "https://www.wildtier.ch",
-        "role": "Developer"
-    }]
+    "authors": [
+        {
+            "name": "Daniel Duersteler",
+            "email": "daniel.duersteler@wildtier.ch",
+            "homepage": "https://www.wildtier.ch",
+            "role": "Developer"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir -p _libraries",
+            "cp -r vendor/twbs/bootstrap/dist _libraries/bootstrap/"
+        ],
+        "post-update-cmd": [
+            "mkdir -p _libraries",
+            "cp -r vendor/twbs/bootstrap/dist _libraries/bootstrap/"
+        ]
+    }
 }

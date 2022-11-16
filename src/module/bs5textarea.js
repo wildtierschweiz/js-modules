@@ -39,8 +39,7 @@
 				$input.attr('id', settings.id);
 			$input.attr('class', 'form-control ' + settings.class);
 			$input.attr('type', settings.type);
-			if (settings.placeholder)
-				$input.attr('placeholder', settings.placeholder);
+			$input.attr('placeholder', settings.placeholder);
 			$input.val(settings.chosen);
 			if (settings.required)
 				$input.attr('required', 'required');
