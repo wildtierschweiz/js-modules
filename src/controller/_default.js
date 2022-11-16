@@ -84,21 +84,11 @@
                 if ($.isFunction(v.ctrlname) && $.isFunction(v.value))
                     p[v.ctrlname()] = v.value();
             });
-            // create querystring from control values
-            var q = $.param(p);
-            if (replace === true) {
-                window.history.replaceState(
-                    { url: window.location.href.split('?')[0] + '?' + q },
-                    window.location.href.split('?')[0] + '?' + q,
-                    window.location.href.split('?')[0] + '?' + q
-                );
-            } else {
-                window.history.pushState(
-                    { url: window.location.href.split('?')[0] + '?' + q },
-                    window.location.href.split('?')[0] + '?' + q,
-                    window.location.href.split('?')[0] + '?' + q
-                );
-            }
+            // create url from control values
+            var url = window.location.href.split('?')[0] + '?' + $.param(p)
+            if (replace === true)
+                window.history.replaceState({ url: url }, url, url);
+            else window.history.pushState({ url }, url, url);
             return p;
         };
 
