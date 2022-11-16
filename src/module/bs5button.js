@@ -49,7 +49,7 @@
                 $e.attr('disabled', 'disabled');
             } else {
                 $e.removeClass('disabled');
-                $e.attr('disabled', 'disabled');
+                $e.removeAttr('disabled');
             }
             $e.on('click', function (event) {
                 event.preventDefault();
