@@ -17,6 +17,9 @@
         };
         var settings = $.extend(true, {}, defaults, options);
 
+        /**
+         * init the module
+         */
         var init = function () {
             settings = $.extend(true, {}, settings, settings.data);
             build();
