@@ -19,7 +19,7 @@
     var settings = {
         ...defaults,
         ...options
-    }
+    };
 
     var a_upper = /[A-Z]/;
     var a_lower = /[a-z]/;
