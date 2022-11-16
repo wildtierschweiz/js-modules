@@ -14,12 +14,12 @@
     ],
     "scripts": {
         "post-install-cmd": [
-            "mkdir -p _libraries",
-            "cp -r vendor/twbs/bootstrap/dist _libraries/bootstrap/"
+            "wsl mkdir -p _libraries",
+            "wsl cp -r vendor/wildtierschweiz/js-modules/src/* ./_libraries/bootstrap/"
         ],
         "post-update-cmd": [
-            "mkdir -p _libraries",
-            "cp -r vendor/twbs/bootstrap/dist _libraries/bootstrap/"
+            "wsl mkdir -p _libraries",
+            "wsl cp -r vendor/wildtierschweiz/js-modules/src/* ./_libraries/bootstrap/"
         ]
     }
 }
