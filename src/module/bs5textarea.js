@@ -2,7 +2,6 @@
 	$.fn.bs5textarea = function (options) {
 		var api = {};
 		var defaults = {
-			data: {},
 			ctrlelem: null,
 			ctrlname: '',
 			ctrltype: '',
@@ -21,7 +20,6 @@
 		var settings = $.extend(true, {}, defaults, options);
 
 		var init = function () {
-			settings = $.extend(true, {}, settings, settings.data);
 			build();
 		};
 

@@ -2,7 +2,6 @@
     $.fn.bs5button = function (options) {
         var api = {};
         var defaults = {
-            data: {},
             ctrlelem: null,
             ctrlname: '',
             ctrltype: '',
@@ -21,7 +20,6 @@
          * init the module
          */
         var init = function () {
-            settings = $.extend(true, {}, settings, settings.data);
             build();
         };
 

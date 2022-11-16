@@ -2,7 +2,6 @@
 	$.fn.bs5highchart = function (options) {
 		var api = {};
 		var defaults = {
-			data: {},
 			ctrlelem: null,
 			ctrltype: '',
 			ctrldata: {},
@@ -13,7 +12,6 @@
 		var settings = $.extend(true, {}, defaults, options);
 
 		var init = function () {
-			settings = $.extend(true, {}, settings, settings.data);
 			build();
 		};
 

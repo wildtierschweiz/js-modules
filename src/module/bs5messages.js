@@ -2,7 +2,6 @@
     $.fn.bs5messages = function (options) {
         var api = {};
         var defaults = {
-            data: {},
             ctrlelem: null,
             ctrltype: '',
             options: {},
@@ -12,7 +11,6 @@
         var settings = $.extend(true, {}, defaults, options);
 
         var init = function () {
-            settings = $.extend(true, {}, settings, settings.data);
             build();
         };
 
