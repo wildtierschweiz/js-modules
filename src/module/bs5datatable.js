@@ -43,10 +43,10 @@
         };
 
         api.update = function (data) {
-            // overwrite existing table data
-            settings.ctrldata.data = data.ctrldata.data;
-            settings = $.extend(true, {}, settings, data);
-            build();
+            settings = $.extend({}, settings, data);
+            if (!$.isFunction(settings.ctrlelem.find('table').DataTable))
+                build();
+            settings.ctrlelem.find('table').DataTable(settings.ctrldata);
         };
 
         init();

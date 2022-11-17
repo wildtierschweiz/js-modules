@@ -22,7 +22,7 @@
             $.ajax({
                 url: window.location.href,
                 type: 'GET',
-                success: build,
+                success: render,
                 beforeSend: settings.complete,
                 complete: settings.complete,
                 error: settings.error,
@@ -30,29 +30,17 @@
         };
 
         /**
-         * build modules with server data
+         * render modules with server data
          * @param {Object} data
          */
-        var build = function (data) {
-            // on change callback for all modules
-            var onChange = query;
-            $.each(data.controls ?? {}, function (k, v) {
-                // create the module instance, if module is found
-                if ($.isFunction($.fn[v.ctrltype])) {
-                    controls[k] = $.fn[v.ctrltype](
-                        $.extend({}, { id: k + '_1', ctrlelem: $('#' + k), onChange: onChange }, v)
-                    );
-                }
-            });
-        };
-
-        /**
-         * update modules with server data
-         * @param {Object} data
-         */
-        var update = function (data) {
+        var render = function (data) {
             $.each(data.controls, function (k, v) {
-                controls[k].update(v);
+                if (controls[k] && $.isFuntion(controls[k].update))
+                    controls[k].update(v);
+                else if ($.isFunction($.fn[v.ctrltype]))
+                    controls[k] = $.fn[v.ctrltype](
+                        $.extend({}, { id: k + '_1', ctrlelem: $('#' + k), onChange: query }, v)
+                    );
             });
         };
 
@@ -65,7 +53,7 @@
                 url: window.location.href,
                 type: 'GET',
                 data: createState(),
-                success: update,
+                success: render,
                 beforeSend: settings.beforeSend,
                 complete: settings.complete,
                 error: settings.error,
