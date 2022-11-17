@@ -31,7 +31,7 @@
 
         /**
          * build modules with server data
-         * @param {Object} data 
+         * @param {Object} data
          */
         var build = function (data) {
             // on change callback for all modules
@@ -48,7 +48,7 @@
 
         /**
          * update modules with server data
-         * @param {Object} data 
+         * @param {Object} data
          */
         var update = function (data) {
             $.each(data.controls, function (k, v) {
@@ -73,9 +73,9 @@
         };
 
         /**
-         * create state and array of module 
+         * create state and array of module
          * values to query the server
-         * @param {Bool} replace 
+         * @param {Bool} replace
          * @returns {Array} query parameters
          */
         var createState = function (replace) {

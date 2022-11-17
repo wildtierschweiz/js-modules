@@ -1,5 +1,5 @@
 /**
- * monkey patches for 
+ * monkey patches for
  * onpushstate and onreplacestate events
  */
 (function (history) {

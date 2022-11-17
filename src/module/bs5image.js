@@ -5,6 +5,7 @@
             ctrlelem: null,
             ctrltype: '',
             class: 'img-fluid',
+            tooltip: '',
             src: '',
         };
         var settings = $.extend(true, {}, defaults, options);
@@ -19,6 +20,14 @@
                 $e.attr('class', settings.class);
             if (settings.src)
                 $e.attr('src', settings.src);
+            if (settings.tooltip) {
+                $e.attr('title', settings.tooltip);
+                $e.attr('data-bs-placement', 'top');
+                $e.attr('data-bs-toggle', 'tooltip');
+                $e.tooltip({
+                    trigger: 'hover'
+                });
+            }
             return $e;
         };
 

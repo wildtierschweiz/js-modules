@@ -48,13 +48,6 @@
             if (settings.title)
                 $input.attr('title', settings.title);
             $input.attr('class', 'form-check-input ' + settings.class);
-            if (settings.tooltip) {
-                $input.attr('title', settings.tooltip);
-                $input.attr('data-bs-placement', 'top');
-                $input.tooltip({
-                    trigger: 'hover'
-                });
-            }
             $input.on('click', function () {
                 if (settings.readonly)
                     return false;
@@ -63,6 +56,14 @@
                 if ($.isFunction(settings.onChange))
                     settings.onChange();
             });
+            if (settings.tooltip) {
+                $e.attr('title', settings.tooltip);
+                $e.attr('data-bs-placement', 'top');
+                $e.attr('data-bs-toggle', 'tooltip');
+                $e.tooltip({
+                    trigger: 'hover'
+                });
+            }
             $e.append($input);
             $e.append($label);
             return $e;

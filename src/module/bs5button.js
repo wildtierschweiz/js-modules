@@ -31,13 +31,6 @@
             var $e = $('<button></button>');
             if (settings.class)
                 $e.attr('class', settings.class);
-            if (settings.tooltip) {
-                $e.attr('title', settings.tooltip);
-                $e.attr('data-placement', 'top');
-                $e.tooltip({
-                    trigger: 'hover'
-                });
-            }
             if (settings.name)
                 $e.attr('name', settings.name);
             if (settings.type)
@@ -58,6 +51,14 @@
                 else if ($.isFunction(settings.onClick))
                     settings.onClick();
             });
+            if (settings.tooltip) {
+                $e.attr('title', settings.tooltip);
+                $e.attr('data-bs-placement', 'top');
+                $e.attr('data-bs-toggle', 'tooltip');
+                $e.tooltip({
+                    trigger: 'hover'
+                });
+            }
             return $e;
         };
 

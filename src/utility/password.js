@@ -1,7 +1,7 @@
 
 /**
  * check password complexity
- * @param {String} p the password to check 
+ * @param {String} p the password to check
  * @param {Object} options
  * @return {Object}
  */

@@ -1,7 +1,7 @@
 /**
  * request a querystring variable
- * @param {*} variable 
- * @returns {string|null} 
+ * @param {*} variable
+ * @returns {string|null}
  */
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);

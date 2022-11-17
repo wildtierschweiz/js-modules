@@ -29,7 +29,10 @@
             if (settings.tooltip) {
                 $div.attr('title', settings.tooltip);
                 $div.attr('data-bs-placement', 'top');
-                $div.tooltip({ trigger: 'hover' });
+                $div.attr('data-bs-toggle', 'tooltip');
+                $div.tooltip({
+                    trigger: 'hover'
+                });
             }
             if (settings.label) {
                 var $label = $('<label></label>');

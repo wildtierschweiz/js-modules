@@ -57,7 +57,8 @@
             settings.ctrlelem.attr('placeholder', settings.placeholder);
             if (settings.tooltip) {
                 settings.ctrlelem.attr('title', settings.tooltip);
-                settings.ctrlelem.attr('data-placement', 'top');
+                settings.ctrlelem.attr('data-bs-placement', 'top');
+                settings.ctrlelem.attr('data-bs-toggle', 'tooltip');
                 settings.ctrlelem.tooltip({
                     trigger: 'hover'
                 });
