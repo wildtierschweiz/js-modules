@@ -35,7 +35,7 @@
          */
         var render = function (data) {
             $.each(data.controls, function (k, v) {
-                if (controls[k] && $.isFuntion(controls[k].update))
+                if (controls[k] && $.isFunction(controls[k]) && $.isFuntion(controls[k].update))
                     controls[k].update(v);
                 else if ($.isFunction($.fn[v.ctrltype]))
                     controls[k] = $.fn[v.ctrltype](

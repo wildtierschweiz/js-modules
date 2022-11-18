@@ -11,10 +11,17 @@
         };
         var settings = $.extend(true, {}, defaults, options);
 
+        /**
+         * initial build the control
+         */
         var init = function () {
             build();
         };
 
+        /**
+         * create the dom element
+         * @returns {jQueryDOMElement}
+         */
         var create = function () {
             var $div = $('<div></div>');
             $div.attr('class', settings.containerclass);
@@ -34,19 +41,41 @@
             return $div;
         };
 
+        /**
+         * build the control
+         * @returns when the container element is not found
+         */
         var build = function () {
             if (!settings.ctrlelem.length)
                 return;
-            settings.ctrlelem.empty();
-            settings.ctrlelem.append(create());
+            if (!settings.ctrlelem.find('table').length)
+                settings.ctrlelem.append(create());
             settings.ctrlelem.find('table').DataTable(settings.ctrldata);
         };
 
+        /**
+         * update control with server data
+         * @param {Object} data
+         */
         api.update = function (data) {
             settings = $.extend({}, settings, data);
-            if (!$.isFunction(settings.ctrlelem.find('table').DataTable))
-                build();
+            // settings.ctrldata.destroy must be set true,
+            // otherwise the control needs to be destroyed manually
+            if (!(settings?.ctrldata?.destroy === true)) {
+                api.destroy();
+                settings.ctrlelem.append(create());
+            }
             settings.ctrlelem.find('table').DataTable(settings.ctrldata);
+        };
+
+        /**
+         * destroy the control
+         */
+        api.destroy = function () {
+            if (settings.ctrlelem.length && $.fn.dataTable.isDataTable(settings.ctrlelem.find('table')))
+                settings.ctrlelem.find('table').DataTable().destroy();
+            if (settings.ctrlelem.length)
+                settings.ctrlelem.empty();
         };
 
         init();
