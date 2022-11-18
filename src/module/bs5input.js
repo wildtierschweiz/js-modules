@@ -16,6 +16,7 @@
             containerclass: '',
             class: '',
             placeholder: '',
+            autocomplete: '',
             onChange: $.noop,
         };
         var settings = $.extend(true, {}, defaults, options);
@@ -47,6 +48,8 @@
                 $input.attr('disabled', 'disabled');
             if (settings.readonly)
                 $input.attr('readonly', 'readonly');
+            if (settings.autocomplete)
+                $input.attr('autocomplete', settings.autocomplete);
             $input.on('change', function () {
                 settings.chosen = $(this).val();
                 if ($.isFunction(settings.onChange))
