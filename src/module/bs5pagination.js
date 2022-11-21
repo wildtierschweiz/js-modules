@@ -132,7 +132,7 @@
 
             $ul.append($li_next);
             if (settings.tooltip) {
-                $e.attr('title', settings.tooltip)
+                $e.attr('title', settings.tooltip);
                 $e.attr('data-bs-placement', 'top');
                 $e.tooltip({ trigger: 'hover' });
             }
