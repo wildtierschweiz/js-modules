@@ -10,7 +10,7 @@
             disabled: false,
             readonly: false,
             tooltip: '',
-            class: 'pagination justify-content-center flex-wrap',
+            class: '',
             containerclass: '',
             onChange: $.noop,
         };
@@ -26,7 +26,7 @@
             $e.attr('aria-label', 'Page navigation');
 
             var $ul = $('<ul></ul>');
-            $ul.addClass(settings.class);
+            $ul.attr('class', 'pagination');
 
             var $li_prev = $('<li></li>');
             $li_prev.attr('class', 'page-item');
