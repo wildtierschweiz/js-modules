@@ -10,7 +10,7 @@
             disabled: false,
             readonly: false,
             tooltip: '',
-            class: '',
+            class: 'pagination justify-content-center flex-wrap',
             containerclass: '',
             onChange: $.noop,
         };
@@ -23,16 +23,17 @@
 
         var create = function () {
             var $e = $('<nav></nav>');
+            $e.attr('class', settings.containerclass);
             $e.attr('aria-label', 'Page navigation');
 
             var $ul = $('<ul></ul>');
-            $ul.attr('class', 'pagination');
+            $ul.attr('class', settings.class);
 
             var $li_prev = $('<li></li>');
             $li_prev.attr('class', 'page-item');
 
             var $a_prev = $('<a></a>');
-            $a_prev.attr('class', 'page-link shadow-none');
+            $a_prev.attr('class', 'page-link');
             $a_prev.attr('href', '#');
             $a_prev.attr('aria-label', 'Previous');
 
@@ -70,7 +71,7 @@
                     $li.attr('disabled', 'disabled');
 
                 $a = $('<a></a>');
-                $a.attr('class', 'page-link ' + settings.class);
+                $a.attr('class', 'page-link');
                 $a.attr('href', '#');
                 $a.text(v);
                 $a.click(function (event) {
@@ -96,7 +97,7 @@
             $li_next.attr('class', 'page-item');
 
             var $a_next = $('<a></a>');
-            $a_next.attr('class', 'page-link shadow-none');
+            $a_next.attr('class', 'page-link');
             $a_next.attr('href', '#');
             $a_next.attr('aria-label', 'Next');
             $a_next.click(function (event) {
