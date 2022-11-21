@@ -42,13 +42,9 @@
 
             var $span1_prev = $('<span></span>');
             $span1_prev.attr('area-hidden', 'true');
-            $span1_prev.text('&laquo;');
-
-            var $span2_prev = $('<span></span>');
-            $span2_prev.text('Previous');
+            $span1_prev.html('&laquo;');
 
             $a_prev.append($span1_prev);
-            $a_prev.append($span2_prev);
             $li_prev.append($a_prev);
 
             if (settings.chosen <= 1)
@@ -109,13 +105,9 @@
 
             var $span1_next = $('<span></span>');
             $span1_next.attr('area-hidden', 'true');
-            $span1_next.text('&raquo;');
-
-            var $span2_next = $('<span></span>');
-            $span2_next.text('Next');
+            $span1_next.html('&raquo;');
 
             $a_next.append($span1_next);
-            $a_next.append($span2_next);
             $li_next.append($a_next);
 
             if ($.inArray(settings.chosen + 1, settings.options) == -1)
