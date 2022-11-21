@@ -1,5 +1,5 @@
 (function ($) {
-    $.fn.bs4pagination = function (options) {
+    $.fn.bs5pagination = function (options) {
         var api = {};
         var defaults = {
             ctrlelem: null,
