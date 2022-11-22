@@ -17,7 +17,6 @@
         var settings = $.extend(true, {}, defaults, options);
 
         var init = function () {
-            settings = $.extend({}, settings, settings.data);
             build();
         };
 
