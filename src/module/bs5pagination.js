@@ -144,11 +144,11 @@
         };
 
         api.value = function () {
-            return (settings.chosen);
+            return settings.chosen;
         };
 
         api.ctrlname = function () {
-            return (settings.ctrlname);
+            return settings.ctrlname;
         };
 
         api.destroy = function () {
