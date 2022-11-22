@@ -30,31 +30,28 @@
 
             var $li_prev = $('<li></li>');
             $li_prev.attr('class', 'page-item');
-
             var $a_prev = $('<a></a>');
             $a_prev.attr('class', 'page-link');
             $a_prev.attr('href', '#');
             $a_prev.attr('aria-label', 'Previous');
-
             $a_prev.click(function (event) {
                 event.preventDefault();
             });
-
             var $span1_prev = $('<span></span>');
             $span1_prev.attr('area-hidden', 'true');
             $span1_prev.html('&laquo;');
-
             $a_prev.append($span1_prev);
             $li_prev.append($a_prev);
-
             if (settings.chosen <= 1)
                 $li_prev.addClass('disabled');
-
             $li_prev.click(function (event) {
                 event.preventDefault();
                 if (settings.chosen <= 1 || $(this).hasClass('disabled'))
                     return false;
                 settings.chosen--;
+                if ($.inArray(settings.chosen - 1, settings.options) == -1)
+                    $li_prev.addClass('disabled');
+                else $li_prev.removeClass('disabled');
                 if ($.isFunction(settings.onChange))
                     settings.onChange();
             });
@@ -68,7 +65,6 @@
                     $li.addClass('active');
                 if (settings.disabled)
                     $li.attr('disabled', 'disabled');
-
                 $a = $('<a></a>');
                 $a.attr('class', 'page-link');
                 $a.attr('href', '#');
@@ -94,7 +90,6 @@
 
             var $li_next = $('<li></li>');
             $li_next.attr('class', 'page-item');
-
             var $a_next = $('<a></a>');
             $a_next.attr('class', 'page-link');
             $a_next.attr('href', '#');
@@ -102,22 +97,21 @@
             $a_next.click(function (event) {
                 event.preventDefault();
             });
-
             var $span1_next = $('<span></span>');
             $span1_next.attr('area-hidden', 'true');
             $span1_next.html('&raquo;');
-
             $a_next.append($span1_next);
             $li_next.append($a_next);
-
             if ($.inArray(settings.chosen + 1, settings.options) == -1)
                 $li_next.addClass('disabled');
-
             $li_next.click(function (event) {
                 event.preventDefault();
                 if ($.inArray(settings.chosen + 1, settings.options) == -1)
                     return false;
                 settings.chosen++;
+                if ($.inArray(settings.chosen + 1, settings.options) == -1)
+                    $li_next.addClass('disabled');
+                else $li_next.removeClass('disabled');
                 if ($.isFunction(settings.onChange))
                     settings.onChange();
             });
