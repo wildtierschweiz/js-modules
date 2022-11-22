@@ -160,8 +160,7 @@
         };
 
         api.update = function (data) {
-            settings.chosen = data.chosen;
-            settings = $.extend(true, {}, settings, data);
+            settings = $.extend({}, settings, data);
             build();
         };
 

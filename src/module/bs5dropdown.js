@@ -105,7 +105,7 @@
         };
 
         api.update = function (data) {
-            settings = $.extend(true, {}, settings, data);
+            settings = $.extend({}, settings, data);
             build();
         };
 
