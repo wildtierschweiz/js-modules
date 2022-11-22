@@ -59,12 +59,12 @@
          */
         api.update = function (data) {
             settings = $.extend({}, settings, data);
-            // settings.ctrldata.destroy must be set true,
+            // TODO::better handling
             // otherwise the control needs to be destroyed manually
-            if (!(settings?.ctrldata?.destroy === true)) {
+            //if (!(settings?.ctrldata?.destroy === true)) {
                 api.destroy();
                 settings.ctrlelem.append(create());
-            }
+            //}
             settings.ctrlelem.find('table').DataTable(settings.ctrldata);
         };
 
