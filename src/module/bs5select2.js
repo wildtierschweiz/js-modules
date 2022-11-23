@@ -55,14 +55,7 @@
             if (settings.required)
                 settings.ctrlelem.attr('required', 'required');
             settings.ctrlelem.attr('placeholder', settings.placeholder);
-            if (settings.tooltip) {
-                settings.ctrlelem.attr('title', settings.tooltip);
-                settings.ctrlelem.attr('data-bs-placement', 'top');
-                settings.ctrlelem.attr('data-bs-toggle', 'tooltip');
-                settings.ctrlelem.tooltip({
-                    trigger: 'hover'
-                });
-            }
+
             // append control markup and events to the container
             if (settings.ajaxurl) {
                 if (settings.sortable)
@@ -136,6 +129,14 @@
                 if ($.isFunction(settings.onChange))
                     settings.onChange();
             });
+            if (settings.tooltip) {
+                settings.ctrlelem.next(['span.select2.select2-container']).attr('title', settings.tooltip);
+                settings.ctrlelem.next(['span.select2.select2-container']).attr('data-bs-placement', 'top');
+                settings.ctrlelem.next(['span.select2.select2-container']).attr('data-bs-toggle', 'tooltip');
+                settings.ctrlelem.next(['span.select2.select2-container']).tooltip({
+                    trigger: 'hover'
+                });
+            }
         };
 
         var build = function () {
