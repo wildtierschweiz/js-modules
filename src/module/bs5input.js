@@ -9,6 +9,9 @@
             label: '',
             chosen: '',
             type: 'text',
+            min: null,
+            max: null,
+            step: null,
             disabled: false,
             readonly: false,
             required: false,
@@ -51,6 +54,12 @@
                 $input.attr('readonly', 'readonly');
             if (settings.autocomplete)
                 $input.attr('autocomplete', settings.autocomplete);
+            if (settings.min !== null)
+                $input.attr('min', settings.min);
+            if (settings.max !== null)
+                $input.attr('max', settings.max);
+            if (settings.step !== null)
+                $input.attr('step', settings.step);
             $input.on('change', function () {
                 settings.chosen = $(this).val();
                 if ($.isFunction(settings.onChange))
