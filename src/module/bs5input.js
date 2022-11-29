@@ -12,6 +12,7 @@
             min: null,
             max: null,
             step: null,
+            maxlength: null,
             disabled: false,
             readonly: false,
             required: false,
@@ -60,6 +61,8 @@
                 $input.attr('max', settings.max);
             if (settings.step !== null)
                 $input.attr('step', settings.step);
+            if (settings.maxlength !== null)
+                $input.attr('maxlength', settings.maxlength);
             $input.on('change', function () {
                 settings.chosen = $(this).val();
                 if ($.isFunction(settings.onChange))
