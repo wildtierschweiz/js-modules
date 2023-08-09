@@ -5,6 +5,7 @@
             ctrlelem: null,
             ctrltype: '',
             ctrldata: {},
+            rowcallback: false,
             containerclass: '',
             class: '',
             disabled: false,
@@ -50,6 +51,8 @@
                 return;
             if (!settings.ctrlelem.find('table').length)
                 settings.ctrlelem.append(create());
+            if (settings.rowcallback === true)
+                settings.ctrldata['rowCallback'] = rowCallback;
             settings.ctrlelem.find('table').DataTable(settings.ctrldata);
         };
 
@@ -62,8 +65,8 @@
             // TODO::better handling
             // otherwise the control needs to be destroyed manually
             //if (!(settings?.ctrldata?.destroy === true)) {
-                api.destroy();
-                settings.ctrlelem.append(create());
+            api.destroy();
+            settings.ctrlelem.append(create());
             //}
             settings.ctrlelem.find('table').DataTable(settings.ctrldata);
         };
@@ -76,6 +79,21 @@
                 settings.ctrlelem.find('table').DataTable().destroy();
             if (settings.ctrlelem.length)
                 settings.ctrlelem.empty();
+        };
+
+        /**
+         * row call back function when settings.ctrldata.rowcallback is enabled
+         * @param {*} row row elem
+         * @param {*} data cell value
+         * @param {*} index cell index
+         */
+        var rowCallback = function (row, data, index) {
+            try {
+                $($(row).find('td')).each(function (i, v) {
+                    cellBackgroundColor = $(v).find('[data-cell-background-color]').attr('data-cell-background-color');
+                    $(v).css('background-color', cellBackgroundColor);
+                });
+            } catch (error) { };
         };
 
         init();
