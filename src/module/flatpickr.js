@@ -28,7 +28,7 @@
             $e = $('<input></input>');
             $e.flatpickr(settings.ctrlelem);
             return $e;
-        }
+        };
 
         var build = function () {
             settings.ctrlelem.empty();
