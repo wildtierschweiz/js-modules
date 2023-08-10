@@ -26,7 +26,7 @@
 
         var create = function () {
             $e = $('<input></input>');
-            $e.flatpickr(settings.ctrlelem);
+            $e.flatpickr(settings.ctrldata);
             return $e;
         };
 
