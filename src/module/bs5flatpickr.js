@@ -1,5 +1,5 @@
 (function ($) {
-    $.fn.flatpickr = function (options) {
+    $.fn.bs5flatpickr = function (options) {
         var api = {};
         var defaults = {
             ctrlelem: null,
