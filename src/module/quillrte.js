@@ -7,7 +7,21 @@
 			data: {},
 			ctrlelem: null,
 			ctrltype: '',
-			ctrldata: {},
+			ctrldata: {
+				theme: 'snow',
+				modules: {
+					toolbar: [
+						[{ font: [] }],
+						[{ header: [1, 2, 3, false] }],
+						['bold', 'italic', 'underline'],
+						[{ color: [] }, { background: [] }],
+						['link'],
+						['blockquote', 'code-block'],
+						[{ list: 'ordered' }, { list: 'bullet' }],
+						[{ indent: '-1' }, [{ indent: '+1' }]],
+					],
+				},
+			},
 			chosen: '',
 			disabled: false,
 			visible: true,
