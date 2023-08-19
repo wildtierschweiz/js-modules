@@ -79,7 +79,7 @@
                 $div.append($label);
             $div.append($select);
             if (settings.label && $div.hasClass('form-floating'))
-                $div.append($select);
+                $div.append($label);
             return $div;
         };
 
