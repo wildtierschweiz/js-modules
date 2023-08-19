@@ -13,7 +13,7 @@
             readonly: false,
             visible: true,
             tooltip: '',
-            class: 'form-control',
+            class: 'form-select',
             placeholder: 'Please select',
             onChange: $.noop,
         };
