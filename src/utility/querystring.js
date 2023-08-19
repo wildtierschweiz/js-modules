@@ -15,6 +15,19 @@ function getQueryVariable(variable) {
 }
 
 /**
+ * get params from relative or full uri
+ * @param {*} param_ 
+ * @param {*} uri_ 
+ * @returns 
+ */
+const getParamsFromURI = (param_, uri_) => {
+    const _uri = uri_ || '';
+    const _base = window.location.origin;
+    const _url = new URL(_uri, _base);
+    return _url.searchParams.get(param_);
+};
+
+/**
  * return query string as an array
  * of key and value pairs
  * @returns {Array}
