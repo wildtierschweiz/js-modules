@@ -14,6 +14,7 @@
             visible: true,
             tooltip: '',
             class: 'form-select',
+            containerclass: '',
             placeholder: 'Please select',
             onChange: $.noop,
         };
@@ -27,21 +28,26 @@
 
         // creating markup and event listeners for the control
         var create = function () {
-            var $e = $('<select></select>');
-            $e.attr('class', settings.class);
+            var $div = $('<div></div>');
+            $div.attr('class', settings.containerclass);
+            var $select = $('<select></select>');
+            if (settings.label) {
+                var $label = $('<label></label>');
+                if (settings.id)
+                    $label.attr('for', settings.id);
+                $label.text(settings.label);
+            }
+            $select.attr('class', settings.class);
+            if (settings.readonly)
+                $select.attr('readonly', settings.readonly);
             if (settings.disabled)
-                $e.attr('disabled', 'disabled');
-            $e.attr('title', settings.tooltip);
-            // position of tooltip
-            $e.attr('data-placement', 'top');
-
+                $select.attr('disabled', settings.disabled);
             if (settings.placeholder) {
                 var $placeholder = $('<option></option>');
                 $placeholder.attr('value', '');
                 $placeholder.text(settings.placeholder);
-                $e.append($placeholder);
+                $select.append($placeholder);
             }
-
             $.each(settings.options, function (k, v) {
                 var $option = $('<option></option>');
                 $option.attr('value', k);
@@ -55,16 +61,26 @@
                     if ($.isFunction(settings.onChange))
                         settings.onChange();
                 });
-                $e.append($option);
-            });
-            $e.tooltip({
-                trigger: 'hover'
+                $select.append($option);
             });
             // fix persistent tooltips
-            $e.on('click', function () {
+            $select.on('click', function () {
                 $(this).tooltip('hide');
             });
-            return $e;
+            if (settings.tooltip) {
+                $div.attr('title', settings.tooltip);
+                $div.attr('data-bs-placement', 'top');
+                $div.attr('data-bs-toggle', 'tooltip');
+                $div.tooltip({
+                    trigger: 'hover'
+                });
+            }
+            if (settings.label && !$div.hasClass('form-floating'))
+                $div.append($label);
+            $div.append($select);
+            if (settings.label && $div.hasClass('form-floating'))
+                $div.append($select);
+            return $div;
         };
 
         // build the control
