@@ -1,5 +1,5 @@
 (function ($) {
-    $.fn.bs4select = function (options) {
+    $.fn.bs5select = function (options) {
 
         var api = {};
         var defaults = {
