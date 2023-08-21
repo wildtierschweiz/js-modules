@@ -2,10 +2,10 @@
 (function ($) {
 	$.fn.quillrte = function (options) {
 		var api = {};
-
 		var defaults = {
 			data: {},
 			ctrlelem: null,
+			ctrlname: '',
 			ctrltype: '',
 			ctrldata: {
 				theme: 'snow',
@@ -57,11 +57,16 @@
 
 		// get chosen value
 		api.value = function () {
-			return (settings.chosen);
+			return settings.chosen;
 		};
 
 		api.ctrlname = function () {
-			return (settings.ctrlname);
+			return settings.ctrlname;
+		};
+
+		api.destroy = function () {
+			settings.ctrlelem.empty();
+			$('.ql-toolbar').remove();
 		};
 
 		init();
