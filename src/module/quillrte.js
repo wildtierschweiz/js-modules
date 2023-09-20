@@ -19,6 +19,7 @@
 						['blockquote', 'code-block'],
 						[{ list: 'ordered' }, { list: 'bullet' }],
 						[{ indent: '-1' }, [{ indent: '+1' }]],
+						['clean'],
 					],
 				},
 			},
@@ -28,6 +29,10 @@
 		};
 
 		var quill;
+
+		// reset toolbar if customized, so the buttons don't get deep merged
+		if (options?.ctrldata?.modules?.toolbar)
+			defaults.ctrldata.modules.toolbar = {};
 		var settings = $.extend(true, {}, defaults, options);
 
 		var init = function () {
